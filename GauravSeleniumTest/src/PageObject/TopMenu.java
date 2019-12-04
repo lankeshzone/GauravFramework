@@ -56,7 +56,7 @@ public class TopMenu
 	
 	public void contact_click()
 	{
-		contact("CONTACT);
+		contact("CONTACT");
 		contact.click();
 	}
 }
