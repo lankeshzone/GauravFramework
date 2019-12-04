@@ -1,8 +1,9 @@
-package main.java.NewToursAutomation;
+package Tests;
 
 import org.testng.annotations.Test;
 
-
+import PageObject.RegisterPage;
+import Utilities.globalVariables;
 
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;
@@ -35,36 +36,7 @@ public class RegistrationModule
 	  rp.register_click();
   }
   
- @Test
- public void testTwo()
- {
-	 driver.get("https://www.linkedin.com/uas/login?session_redirect=&trk=hb_signin");
-		
-		
-		SignInPageObject spo = new SignInPageObject(driver);
-		
-		spo.userID_EnterText("lankeshzone@gmail.com", "username");
-		
-			
-		spo.userAgreement_click("User Agreement");
-		
-		driver.get("https://www.linkedin.com/uas/login?session_redirect=&trk=hb_signin");
-		
-		spo.privacy_click("Privacy Policy");
-		
-		
-		
-		privacyPageObject ppo = new privacyPageObject(driver);
-		
-		ppo.introduction_Click("//a[contains(text(),'Introduction')]");
-		
-	
-		//driver.get("https://www.linkedin.com/legal/privacy-policy?trk=d_checkpoint_lg_consumerLogin_ft_privacy_policy");
-		
-		
-		ppo.data_Click("//a[contains(text(),'Data We Collect')]");
- }
-  
+ 
   
   @BeforeClass
   public void beforeClass() 
@@ -75,13 +47,6 @@ public class RegistrationModule
 	  driver.findElement(By.linkText("REGISTER")).click();
 	  rp = new RegisterPage(driver);
 		
-  }
-
-  
-  @AfterMethod
-  public void afterMethod() 
-  {
-  
   }
 
 

@@ -1,4 +1,4 @@
-package main.java.NewToursAutomation;
+package Utilities;
 
 import org.openqa.selenium.WebDriver;
 

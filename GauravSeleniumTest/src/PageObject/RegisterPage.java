@@ -1,4 +1,4 @@
-package main.java.NewToursAutomation;
+package PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,7 @@ public class RegisterPage
 {
 	static WebDriver driver;
 	
-	RegisterPage(WebDriver d)
+	public RegisterPage(WebDriver d)
 	{
 		driver = d;
 	}
