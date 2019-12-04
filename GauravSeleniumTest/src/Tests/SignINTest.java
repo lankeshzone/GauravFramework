@@ -18,20 +18,20 @@ public class SignINTest
 	static TopMenu tp;
 	
 	 @BeforeClass
-	  public void beforeClass() 
-	  {
+	 public void beforeClass() 
+	 {
 		  driver = globalVariables.driver;
 		  driver = new FirefoxDriver();
 		  driver.get(globalVariables.url);
 		  driver.findElement(By.linkText("REGISTER")).click();
 		  sp = new signINPage(driver);
 		  tp = new TopMenu(driver);
-	  }
+	 }
 	
-	 @Test
+	@Test
 	public void signInTest() 
 	{
-		 // test for login scenario
+		// test for login scenario
 		tp.signON_click();
 		sp.userName_enterText("Lankesh123@gmail.com");
 		sp.password_enterText("Lankesh123");
