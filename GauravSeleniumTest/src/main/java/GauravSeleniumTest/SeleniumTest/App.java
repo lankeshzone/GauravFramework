@@ -1,4 +1,4 @@
-package GauravSeleniumTest.SeleniumTest;
+package main.java.GauravSeleniumTest.SeleniumTest;
 
 /**
  * Hello world!

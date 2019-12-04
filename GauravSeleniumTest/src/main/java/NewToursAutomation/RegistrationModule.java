@@ -1,11 +1,15 @@
-package NewToursAutomation;
+package main.java.NewToursAutomation;
 
 import org.testng.annotations.Test;
+
+
+
 import org.testng.annotations.BeforeMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 
 public class RegistrationModule 
 {
@@ -34,12 +38,36 @@ public class RegistrationModule
  @Test
  public void testTwo()
  {
-	 
+	 driver.get("https://www.linkedin.com/uas/login?session_redirect=&trk=hb_signin");
+		
+		
+		SignInPageObject spo = new SignInPageObject(driver);
+		
+		spo.userID_EnterText("lankeshzone@gmail.com", "username");
+		
+			
+		spo.userAgreement_click("User Agreement");
+		
+		driver.get("https://www.linkedin.com/uas/login?session_redirect=&trk=hb_signin");
+		
+		spo.privacy_click("Privacy Policy");
+		
+		
+		
+		privacyPageObject ppo = new privacyPageObject(driver);
+		
+		ppo.introduction_Click("//a[contains(text(),'Introduction')]");
+		
+	
+		//driver.get("https://www.linkedin.com/legal/privacy-policy?trk=d_checkpoint_lg_consumerLogin_ft_privacy_policy");
+		
+		
+		ppo.data_Click("//a[contains(text(),'Data We Collect')]");
  }
   
   
-  @BeforeMethod
-  public void beforeMethod() 
+  @BeforeClass
+  public void beforeClass() 
   {
 	  driver = globalVariables.driver;
 	  driver = new FirefoxDriver();
