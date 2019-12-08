@@ -3,6 +3,7 @@ package PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegisterPage
 {
@@ -67,6 +68,13 @@ public class RegisterPage
 	public static void country_Text(String locatorValue)
 	{
 		Country = driver.findElement(By.name(locatorValue));
+	}
+	
+	public void country_value(String Text)
+	{
+		country_Text("country");
+		Select s = new Select(Country);
+		s.selectByVisibleText(Text);
 	}
 	
 	public static void username_Text(String locatorValue)
