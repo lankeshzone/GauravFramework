@@ -1,10 +1,16 @@
 package Tests;
 
 import org.testng.annotations.Test;
+
+import Utilities.DriverUtil;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.BeforeClass;
+
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -15,34 +21,37 @@ import org.testng.annotations.AfterSuite;
 
 public class Registration 
 {
+	static DriverUtil Driver;
+	static WebDriver driver;
+	
   @Test(groups = { "Regression","Sanity"})
-  public void Tc001()
+  public void Tc001() throws MalformedURLException
   {
-	  WebDriver driver = new ChromeDriver();
+	  driver = Driver.setupBrowser("chrome");
 	  driver.get("https://www.facebook.com");
 	  System.out.println("Iam in TC001 in both sanity and Regression");
   }
   
   @Test(groups = { "Regression"})
-  public void Tc002()
+  public void Tc002() throws MalformedURLException
   {
-	  WebDriver driver = new ChromeDriver();
+	  driver = Driver.setupBrowser("firefox");
 	  driver.get("https://www.linkedin.com");
 	  System.out.println("Iam in Test1 Regression");
   }
   
   @Test(groups = { "Regression"})
-  public void Tc003()
+  public void Tc003() throws MalformedURLException
   {
-	  WebDriver driver = new ChromeDriver();
+	  driver = Driver.setupBrowser("chrome");
 	  driver.get("https://www.google.com");
 	  System.out.println("Iam in Test2 Regression");
   }
   
   @Test(groups = { "Regression"})
-  public void Tc004()
+  public void Tc004() throws MalformedURLException
   {
-	  WebDriver driver = new ChromeDriver();
+	  driver = Driver.setupBrowser("Chrome");
 	  driver.get("https://www.ndtv.com");
 	  System.out.println("Iam in Test3 Regression");
   }
@@ -68,6 +77,7 @@ public class Registration
   }
   @BeforeClass
   public void beforeClass() {
+	  Driver = new DriverUtil(driver);
 	  System.out.println("Iam in before class");
   }
 
