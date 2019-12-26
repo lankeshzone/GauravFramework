@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import PageObject.RegisterPage;
@@ -11,6 +12,7 @@ import PageObject.TopMenu;
 import PageObject.signINPage;
 import Utilities.globalVariables;
 
+@Listeners(Utilities.ListenerUtility.class)
 public class SignINTest 
 {
 	static WebDriver driver;

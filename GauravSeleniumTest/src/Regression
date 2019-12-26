@@ -4,5 +4,10 @@
     <classes>
       <class name="Tests.Registration"/>
     </classes>
+    
+    <Listeners>
+    <Listener class = "Tests.Smoke">
+    <Listeners>
+    
   </test> <!-- Test -->
 </suite> <!-- Suite -->

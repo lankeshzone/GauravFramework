@@ -2,8 +2,12 @@ package Tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+
+@Listeners(Utilities.ListenerUtility.class)
 public class Smoke 
 {
 	
@@ -37,6 +41,7 @@ public class Smoke
 		  WebDriver driver = new ChromeDriver();
 		  driver.get("https://www.snapdeal.com");
 		  System.out.println("Iam in tc-7 in smoke");
+		  Assert.fail("Iam failing message");
 	  }
 
 }
