@@ -7,10 +7,18 @@ import PageObject.TopMenu;
 import Utilities.globalVariables;
 
 import org.testng.annotations.BeforeMethod;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
@@ -18,12 +26,24 @@ public class RegistrationModule
 {
   
 	@Test
-	public void register_User()
+	public void register_User() throws MalformedURLException
 	{
-		WebDriver driver = new ChromeDriver();
+		URL url = new URL("http://192.168.1.10:4444/wd/hub");
+		DesiredCapabilities cap = new DesiredCapabilities();
+		
+		cap.setBrowserName("chrome");
+		cap.setPlatform(Platform.WINDOWS);
+		cap.setAcceptInsecureCerts(true);
+		
+		cap.setJavascriptEnabled(false);
+		
+		WebDriver driver = new RemoteWebDriver(url,cap);
 		
 		driver.get("http://newtours.demoaut.com/mercurywelcome.php");
 		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+		js.executeScript("alert('Hello');");
 		//creating object of top menu to click on register link
 		TopMenu tpo = new TopMenu(driver);
 	
